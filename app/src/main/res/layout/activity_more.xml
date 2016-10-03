@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="org.heartraise.heartraise.MoreActivity">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heartraiseImg"
+        android:src="@drawable/give"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_below="@+id/fulltitleField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fullstoryField"
+        android:padding="20dp"
+        android:background="@drawable/input_layout"
+        android:layout_below="@+id/heartraiseImg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:text="full story goes here" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Donate now!"
+        android:id="@+id/donateBtn"
+        android:background="@drawable/mybutton"
+        android:layout_below="@+id/fullstoryField"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comments"
+        android:id="@+id/commntBtn"
+        android:background="@drawable/mybutton"
+        android:layout_below="@+id/donateBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Share"
+        android:id="@+id/shareBtn"
+        android:background="@drawable/mybutton"
+        android:layout_below="@+id/commntBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fulltitleField"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Heartraise Title"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp" />
+</RelativeLayout>
