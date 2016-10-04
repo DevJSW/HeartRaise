@@ -45,8 +45,6 @@ public class HomeActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        mProgress.setMessage("Loading...");
-        mProgress.show();
 
         FirebaseRecyclerAdapter<heartraise, heartraiseViewHolder> firebaseRecyclerAdapter = new  FirebaseRecyclerAdapter<heartraise, heartraiseViewHolder>(
 
@@ -71,7 +69,7 @@ public class HomeActivity extends AppCompatActivity {
 
         mHeartRaiseList.setAdapter(firebaseRecyclerAdapter);
 
-        mProgress.dismiss();
+
     }
 
 
