@@ -95,13 +95,17 @@ public class LoginActivity extends AppCompatActivity {
                                 // signed in user can be handled in the listener.
                                 mProgress.dismiss();
                                 if (!task.isSuccessful()) {
+                                    mProgress.dismiss();
                                     // there was an error
                                     if (password.length() < 6) {
+                                        mProgress.dismiss();
                                         inputPassword.setError(getString(R.string.minimum_password));
                                     } else {
+                                        mProgress.dismiss();
                                         Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
+                                    mProgress.dismiss();
                                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                     startActivity(intent);
                                     finish();
