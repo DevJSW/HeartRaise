@@ -82,7 +82,6 @@
                 android:scaleType="fitCenter"
                 android:src="@drawable/comments"
                 android:layout_marginLeft="40dp"
-                android:layout_marginStart="50dp"
                 android:background="#00ffffff"
                 android:layout_alignParentTop="true"
                 android:layout_toRightOf="@+id/addLike_Button"
