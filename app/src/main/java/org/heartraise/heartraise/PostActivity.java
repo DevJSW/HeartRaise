@@ -120,6 +120,7 @@ public class PostActivity extends AppCompatActivity {
 
             CropImage.activity(mImageUri)
                     .setGuidelines(CropImageView.Guidelines.ON)
+                    .setAspectRatio(6, 3)
                     .start(this);
 
 

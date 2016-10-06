@@ -37,7 +37,8 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="By"
             android:id="@+id/byId"
-            android:layout_marginLeft="20dp" />
+            android:layout_marginLeft="20dp"
+            android:textStyle="bold" />
 
 
             <ImageView
@@ -45,8 +46,7 @@
                 android:layout_height="20dp"
                 android:id="@+id/imageView"
                 android:layout_toRightOf="@+id/byId"
-                android:src="@drawable/profilepic"
-                android:layout_marginLeft="5dp" />
+                android:src="@drawable/profilepic" />
 
         </RelativeLayout>
 
@@ -65,36 +65,39 @@
 
 
            <ImageButton
-               android:layout_width="40dp"
-               android:layout_height="40dp"
-               android:src="@drawable/approval"
+               android:layout_width="20dp"
+               android:layout_height="20dp"
+               android:src="@drawable/like"
                android:id="@+id/addLike_Button"
                android:adjustViewBounds="true"
-               android:scaleType="fitCenter" />
+               android:scaleType="fitCenter"
+               android:background="#00ffffff"
+               android:layout_marginLeft="10dp"
+               android:layout_marginBottom="5dp" />
 
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:id="@+id/commentButton"
                 android:scaleType="fitCenter"
                 android:src="@drawable/comments"
-                android:layout_marginLeft="28dp"
-                android:layout_marginStart="28dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginStart="50dp"
+                android:background="#00ffffff"
                 android:layout_alignParentTop="true"
                 android:layout_toRightOf="@+id/addLike_Button"
                 android:layout_toEndOf="@+id/addLike_Button" />
 
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:id="@+id/moreButton"
                 android:src="@drawable/share"
                 android:scaleType="fitCenter"
-                android:layout_marginLeft="29dp"
-                android:layout_marginStart="29dp"
+                android:background="#00ffffff"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/commentButton"
-                android:layout_toEndOf="@+id/commentButton" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="40dp" />
 
 
 

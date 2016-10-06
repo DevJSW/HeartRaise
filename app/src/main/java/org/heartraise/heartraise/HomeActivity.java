@@ -27,15 +27,12 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
         mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users");
         mDatabase = FirebaseDatabase.getInstance().getReference().child("HeartRaise");
         mDatabase.keepSynced(true);
-
-
 
         mHeartRaiseList = (RecyclerView) findViewById(R.id.heartraise_list);
         mHeartRaiseList.setHasFixedSize(true);

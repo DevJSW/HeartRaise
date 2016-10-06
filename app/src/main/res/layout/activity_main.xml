@@ -13,13 +13,7 @@
         android:theme="@style/AppTheme.AppBarOverlay"
         app:elevation="0dp">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimaryDark"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
 
     </android.support.design.widget.AppBarLayout>
 
@@ -27,11 +21,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
+        android:padding="10dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/profimgBtn"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/profilepic"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:background="#00ffffff"
+            android:layout_marginBottom="10dp"/>
 
         <EditText
             android:id="@+id/old_email"
@@ -80,7 +82,7 @@
             style="?android:textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             android:background="@color/colorPrimaryDark"
             android:text="@string/btn_change"
             android:textColor="@android:color/white"
@@ -91,7 +93,7 @@
             style="?android:textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             android:background="@color/colorPrimaryDark"
             android:text="@string/btn_change"
             android:textColor="@android:color/white"
@@ -102,7 +104,7 @@
             style="?android:textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             android:background="@color/colorPrimaryDark"
             android:text="@string/btn_send"
             android:textColor="@android:color/white"
@@ -119,7 +121,7 @@
             style="?android:textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             android:background="@color/colorPrimaryDark"
             android:text="@string/btn_remove"
             android:textColor="@android:color/white"
@@ -130,7 +132,7 @@
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             android:text="@string/change_email"
             android:textStyle="bold" />
 
@@ -139,7 +141,7 @@
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             android:text="@string/change_password"
             android:textStyle="bold" />
 
@@ -148,7 +150,7 @@
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             android:text="@string/send_password_reset_email"
             android:textStyle="bold" />
 
@@ -157,7 +159,7 @@
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             android:text="@string/remove_user"
             android:textStyle="bold" />
 
