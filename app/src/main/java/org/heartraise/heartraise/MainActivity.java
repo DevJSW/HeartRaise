@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,9 +14,15 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -30,16 +37,18 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
     private Uri mImageUri = null;
+    private DatabaseReference mDatabaseUsers;
+    private StorageReference mStorage;
     private static int GALLERY_REQUEST =1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //ActionBar actionBar = getActionBar();
 
-       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-       // toolbar.setTitle(getString(R.string.app_name));
-        //setSupportActionBar(toolbar);
+        //actionBar.setDisplayHomeAsUpEnabled(true);
+
 
         //get firebase auth instance
         auth = FirebaseAuth.getInstance();
@@ -70,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
         sendEmail = (Button) findViewById(R.id.send);
         remove = (Button) findViewById(R.id.remove);
         signOut = (Button) findViewById(R.id.sign_out);
+        mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users");
+        mStorage = FirebaseStorage.getInstance().getReference().child("profile_images");
 
         oldEmail = (EditText) findViewById(R.id.old_email);
         newEmail = (EditText) findViewById(R.id.new_email);
@@ -266,6 +277,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; goto parent activity.
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
 
     //sign out method
     public void signOut() {
@@ -320,10 +344,36 @@ public class MainActivity extends AppCompatActivity {
 
                 mProfilePic.setImageURI(mImageUri);
 
+               // changeProfilepic();
+
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Exception error = result.getError();
             }
         }
      }
 
+    private void changeProfilepic() {
+
+        String User_id = auth.getCurrentUser().getUid();
+
+        if (mImageUri != null) {
+
+
+            StorageReference filepath = mStorage.child(mImageUri.getLastPathSegment());
+
+
+            filepath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                    Uri downloadUrl = taskSnapshot.getDownloadUrl();
+
+                    mDatabaseUsers.child("User_id").child("image").setValue(downloadUrl);
+
+                }
+            });
+
+        }
     }
+
+}
